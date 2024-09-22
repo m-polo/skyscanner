@@ -1,0 +1,58 @@
+.topContentImage {
+  height: 24px;
+  width: 24px;
+}
+
+.logo {
+  height: 40px;
+  width: 173px;
+}
+
+.topContentButton {
+  height: 40px;
+  width: 40px;
+  background: none;
+  border: none;
+  border-radius: 0.5rem;
+  align-items: center;
+  padding: 0;
+
+  &:hover {
+    background-color: #626971;
+    text-decoration: none;
+  }
+}
+
+.longButton {
+  width: 145px;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  padding-left: 4px;
+
+  span {
+    align-items: center;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    margin-right: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.headerTopContent {
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  gap: 65%;
+  margin-top: 0px;
+}
+
+.rightContainer {
+  display: flex;
+  flex-direction: row;
+}

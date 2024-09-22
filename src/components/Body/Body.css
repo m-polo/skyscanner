@@ -1,0 +1,30 @@
+.bodyContent {
+  padding: 48px;
+  width: auto;
+  min-height: 400px;
+}
+
+.innerContent {
+  margin: 0px 52px;
+  display: flex;
+  flex-direction: row;
+}
+
+.leftContent {
+  display: flex;
+  flex-direction: column;
+  flex: 50%;
+}
+
+.rightContent {
+  flex: 50%;
+}
+
+.topInnerContent {
+  color: #05203c;
+  font-weight: 800;
+  margin-bottom: 10px;
+
+  display: flex;
+  justify-content: center;
+}

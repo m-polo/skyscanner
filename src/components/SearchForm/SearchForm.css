@@ -1,0 +1,60 @@
+.form {
+  height: 72px;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.formItem {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+
+  input, select {
+    height: 44px;
+    border-radius: 10px;
+    border: none;
+  }
+
+  label {
+    height: 20px;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+  }
+}
+
+.arrowsImage {
+  background-color: white;
+  align-items: center;
+  border: 3px solid#05203c;
+  border-radius: 50%;
+  display: flex;
+  height: 2.5rem;
+  justify-content: center;
+  transition: transform 0.4s;
+  width: 2.5rem;
+  transform: rotate(90deg);
+  margin-top: 20px;
+}
+
+.submit {
+  height: 46px;
+  background-color: rgb(2, 77, 175);
+  border-radius: 0.75rem;
+  border: none;
+  align-self: center;
+  margin-top: 20px;
+  min-width: 90px;
+
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+
+  &:hover {
+    background-color: #154679;
+  }
+}
