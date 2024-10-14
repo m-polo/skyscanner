@@ -12,13 +12,25 @@ on:
         required: true
         default: v1.0.0
         type: string
-
+        
+env:
+  VERSION: ${{ inputs.tag-version != '' && inputs.tag-version || 'v1.0.0' }}
+        
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag skyscanner:$VERSION
-      env:
-        VERSION: ${{ inputs.tag-version != '' && inputs.tag-version || 'v1.0.0' }}
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Build and export
+      uses: docker/build-push-action@v6
+      with:
+        tags: skyscanner:$VERSION
+        outputs: type=docker,dest=/images/skyscanner.tar
+      
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.4.3
+      with:
+        name: skyscanner:$VERSION
+        path: /images/skyscanner.tar
