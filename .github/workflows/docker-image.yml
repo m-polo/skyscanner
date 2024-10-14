@@ -26,11 +26,11 @@ jobs:
     - name: Build and export
       uses: docker/build-push-action@v6
       with:
-        tags: skyscanner:$VERSION
+        tags: skyscanner:latest
         outputs: type=docker,dest=/tmp/skyscanner.tar
       
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.4.3
       with:
-        name: skyscanner:$VERSION
+        name: skyscanner:latest
         path: /tmp/skyscanner.tar
