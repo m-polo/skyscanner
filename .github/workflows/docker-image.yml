@@ -10,11 +10,11 @@ on:
       tag-version:
         description: Tag version of the build
         required: true
-        default: v1.0.0
+        default: latest
         type: string
         
 env:
-  VERSION: ${{ inputs.tag-version != '' && inputs.tag-version || 'v1.0.0' }}
+  VERSION: ${{ inputs.tag-version != '' && inputs.tag-version || 'latest' }}
         
 jobs:
   build:
@@ -23,14 +23,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Build and export
-      uses: docker/build-push-action@v6
-      with:
-        tags: skyscanner:latest
-        outputs: type=docker,dest=/tmp/skyscanner.tar
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag skyscanner:$VERSION
+
+    - name: Generate tar file
+      run: docker save --output skyscanner.tar skyscanner:$VERSION
       
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.4.3
       with:
-        name: skyscanner:latest
-        path: /tmp/skyscanner.tar
+        name: skyscanner:$VERSION
+        path: skyscanner.tar
