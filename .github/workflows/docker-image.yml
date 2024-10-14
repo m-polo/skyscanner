@@ -10,7 +10,8 @@ on:
       tag-version:
         description: Tag version of the build
         required: true
-        default: $(date +%s)
+        default: v1.0.0
+        type: string
 
 jobs:
   build:
