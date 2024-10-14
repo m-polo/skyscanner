@@ -21,4 +21,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag skyscanner:$VERSION
       env:
-        VERSION: ${{ inputs.tag-version }}
+        VERSION: ${{ inputs.tag-version != '' && inputs.tag-version || 'v1.0.0' }}
